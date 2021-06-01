@@ -8,17 +8,17 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div>
-    {% for champion in champions %}
+<div class="example-wrapper">
+    {% for championUnique in champion %}
         <ul>
-            <li><a href='{{ path('champion', {slug: champion.id}) }}'><p>{{champion.name}}</p></a></li>
-            <li><p>{{champion.title}}</p></li>
-            <li><p>{{champion.blurb}}</p></li>
-            {% for tag in champion.tags %}
+            <li><p>{{championUnique.name}}</p></li>
+            <li><p>{{championUnique.title}}</p></li>
+            <li><p>{{championUnique.lore}}</p></li>
+            {% for tag in championUnique.tags %}
                 <li>{{tag}}</li>
             {% endfor %}
 
-            <li><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champion.id}}_0.jpg'></li>
+            <li><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{championUnique.id}}_0.jpg'></li>
         </ul>
     {% endfor %}
 </div>
